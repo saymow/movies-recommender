@@ -35,6 +35,11 @@ def load_data():
 
     return (item_train, user_train, y_train, item_features, user_features, item_vecs, movie_dict, user_to_genre)
 
+def load_metadata():
+    top_50_most_rated_movies = genfromtxt('./data/content_top_50_movies.csv', delimiter=',')
+
+    return top_50_most_rated_movies
+
 def pprint_train(x_train, features, vs, u_s, maxcount=5, user=True):
     if user:
         flist = [".0f", ".0f", ".1f",
