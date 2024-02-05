@@ -75,3 +75,23 @@ a {
     color-scheme: dark;
   }
 }
+
+.test-primary {
+  color: #fff;
+}
+
+.text-secondary {
+  color: #818080;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #161616;
+  border-radius: .5rem;
+}

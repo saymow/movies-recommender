@@ -5,7 +5,7 @@ export interface Movie {
   avg_rating: number;
   genres: string[];
   img_url: string;
-  trailer_videos_urls: string[];
+  trailer_videos_ids: string[];
   imdb_id: string;
   directors: string[];
 }

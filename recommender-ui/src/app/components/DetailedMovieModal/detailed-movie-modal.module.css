@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  height: 100%;
+}
+
+.main_content {
+  display: flex;
+  gap: 1.2rem;
+}
+
+.main_content img {
+  border: 3px solid #fff;
+  border-radius: 0.5rem;
+}
+
+.movie_description {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie_description p {
+  color: #818080;
+  margin-top: 0.1rem;
+}
+
+.movie_description > p {
+  margin-top: 1rem;
+}
+
+.movie_description footer {
+  margin-top: auto;
+}
+
+.trailers_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.trailers_list {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  
+  overflow-x: auto;
+  gap: 1.6rem;
+  padding-bottom: 0.5rem;
+}
+
+@media (max-width: 720px) {
+  .main_content {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .trailers_list {
+    flex-direction: column;
+  }
+}
