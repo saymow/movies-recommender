@@ -12,5 +12,9 @@ const get_main_movies_data = () => {
 export async function GET(req: Request) {
   const main_movies = get_main_movies_data();
 
-  return Response.json(main_movies);
+  return Response.json(main_movies, {
+    headers: {
+      "Cache-Control": "max-age=31536000",
+    },
+  });
 }
