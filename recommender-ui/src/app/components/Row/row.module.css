@@ -1,10 +1,75 @@
 .article {
   position: relative;
+
   height: 100%;
   width: 100%;
-  overflow-x: auto;
-  gap: 0.5rem;
   display: flex;
-  justify-content: space-evenly;
-  align-items: stretch;
+  overflow-x: auto;
+}
+
+.section_container {
+  gap: .5rem;
+  padding: 0.5rem;
+  display: flex;
+  overflow-y: hidden;
+  overflow-x: auto;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.section_container::-webkit-scrollbar {
+  display: none;
+}
+
+.movie_card {
+  display: block;
+  cursor: pointer;
+  transition: all 1000 ease;
+  border-radius: .2rem;
+  border: .2rem solid transparent;
+}
+
+.movie_card:hover {
+  transform: translateY(-.2rem);
+}
+
+.selected_movie_card {
+  transform: translateY(-.2rem) scale(1.05);
+  border: .2rem solid #fff;
+}
+
+.scroll_handle {
+  position: absolute;
+  z-index: 98;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.article:hover .scroll_handle {
+  opacity: 1;
+}
+
+.scroll_handle_disabled {
+  display: none;
+}
+
+.scroll_handle_left {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5rem;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.05)
+  );
+}
+
+.scroll_handle_right {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 5rem;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.05));
 }

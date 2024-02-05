@@ -1,4 +1,5 @@
 export interface Movie {
+  id: string;
   title: string;
   summary: string;
   avg_rating: number;

@@ -6,11 +6,11 @@ const get_main_movies_data = () => {
 
   return Object.entries(recommendation_movies_data)
     .filter(([movie_id, movie_data]) => main_movies_ids.has(movie_id))
-    .map(([, movie_data]) => movie_data);
+    .map(([id, movie_data]) => ({ ...movie_data, id }));
 };
 
 export async function GET(req: Request) {
-  const main_movies = get_main_movies_data()
-  
+  const main_movies = get_main_movies_data();
+
   return Response.json(main_movies);
 }
