@@ -1,0 +1,27 @@
+.scroll_handle {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  z-index: 98;
+  width: 5rem;
+  opacity: 0;
+}
+
+.scroll_handle_disabled {
+  display: none;
+}
+
+.scroll_handle_left {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.8),
+    rgba(0, 0, 0, 0.05)
+  );
+}
+
+.scroll_handle_right {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.05));
+}

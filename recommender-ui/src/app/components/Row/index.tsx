@@ -3,6 +3,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { Movie } from "@/app/models/movie";
 import Image from "next/image";
 import styles from "./row.module.css";
+import ScrollHandle from "./ScrollHandle";
 
 interface Props {
   movies: Movie[];
@@ -11,13 +12,13 @@ interface Props {
 }
 
 enum ViewScroll {
-  LETT,
-  RIGHT,
+  LEFT = "LEFT",
+  RIGHT = "RIGHT",
 }
 
 const Row = (props: Props) => {
   const { movies, selectedMovies, onMovieClick } = props;
-  const [viewScroll, setViewScroll] = useState<ViewScroll>(ViewScroll.LETT);
+  const [viewScroll, setViewScroll] = useState<ViewScroll>(ViewScroll.LEFT);
   const firstMovieRef = useRef<HTMLImageElement>(null);
   const lastMovieRef = useRef<HTMLImageElement>(null);
   const Movies = useMemo(() => {
@@ -80,7 +81,7 @@ const Row = (props: Props) => {
   }, [movies, onMovieClick, selectedMovies]);
 
   useEffect(() => {
-    if (viewScroll === ViewScroll.LETT) {
+    if (viewScroll === ViewScroll.LEFT) {
       firstMovieRef.current?.scrollIntoView({ behavior: "smooth" });
     } else {
       lastMovieRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -88,7 +89,7 @@ const Row = (props: Props) => {
   }, [viewScroll]);
 
   const handleScrollLeft = () => {
-    setViewScroll(ViewScroll.LETT);
+    setViewScroll(ViewScroll.LEFT);
   };
 
   const handleScrollRight = () => {
@@ -97,19 +98,17 @@ const Row = (props: Props) => {
 
   return (
     <article className={styles.article}>
-      <span
+      <ScrollHandle
         onClick={handleScrollLeft}
-        className={`${styles.scroll_handle} ${styles.scroll_handle_left} ${
-          viewScroll === ViewScroll.LETT ? styles.scroll_handle_disabled : ""
-        }`}
-      ></span>
+        position={ViewScroll.LEFT}
+        disabled={viewScroll === ViewScroll.LEFT}
+      />
       <section className={styles.section_container}>{Movies}</section>
-      <span
+      <ScrollHandle
         onClick={handleScrollRight}
-        className={`${styles.scroll_handle} ${styles.scroll_handle_right} ${
-          viewScroll === ViewScroll.RIGHT ? styles.scroll_handle_disabled : ""
-        }`}
-      ></span>
+        position={ViewScroll.RIGHT}
+        disabled={viewScroll === ViewScroll.RIGHT}
+      />
     </article>
   );
 };

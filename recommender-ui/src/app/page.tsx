@@ -6,6 +6,8 @@ import styles from "./page.module.css";
 
 type SelectedMovies = string[];
 
+const TOTAL_MOVIES_SELECT = 3;
+
 const get_movies = async (): Promise<Movie[]> => {
   const response = await fetch("http://localhost:3000/api/movies");
   const data: Movie[] = await response.json();
@@ -48,7 +50,7 @@ const Home: React.FC = () => {
 
   const handleMovieClick = useCallback((movieId: string) => {
     setSelectedMovies((prev) => {
-      if (prev.length === 3 && !prev.includes(movieId)) {
+      if (prev.length === TOTAL_MOVIES_SELECT && !prev.includes(movieId)) {
         return prev;
       }
 
