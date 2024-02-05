@@ -36,6 +36,10 @@ const get_closest_recommendation = (movie_ids: string[]) => {
   let candidate_movie_distance = Infinity;
 
   for (let idx = 0; idx < m; idx++) {
+    if (movies_idx.includes(idx)) continue;
+    // We dont have data for this movie :D
+    if (idx === 830) continue;
+
     const distance = compute_movies_distance(idx, movies_idx);
 
     if (distance < candidate_movie_distance) {
