@@ -1,5 +1,4 @@
 "use client";
-import { createPortal } from "react-dom";
 import { Grid } from "react-loader-spinner";
 import styles from "./loader.module.css";
 
