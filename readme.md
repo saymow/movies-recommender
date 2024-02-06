@@ -2,6 +2,8 @@
 
 ## <a href="https://movies-recommender-tau.vercel.app/" target="_blank">Live version</a>
 
+[Screencast from 06-02-2024 15:53:56.webm](https://github.com/saymow/movies-recommender/assets/52419335/f4017ba1-9f92-469a-b4b5-c3d5daf33599)
+
 Using users (e.g., preferences for each of the defined genres (0-5)) and movies (e.g., binary attribute indicating whether or not a movie is part of a certain genre (1.0)) content, train the model to predict movie recommendations. In this case specifically, since we are not going to have users, we are going to focus on how similar a movie is to other movies.
 
 The dataset contains: 
