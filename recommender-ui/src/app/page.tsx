@@ -25,7 +25,7 @@ const mapMovie = (data: any): Movie => {
 };
 
 const get_movies = async (): Promise<Movie[]> => {
-  const response = await fetch("http://localhost:3000/api/movies");
+  const response = await fetch("/api/movies");
   const data: Movie[] = await response.json();
 
   return data.map((movie) => mapMovie(movie));
@@ -51,7 +51,7 @@ const get_recommendation = async (
   selectedMovies: SelectedMovies
 ): Promise<Movie> => {
   const response = await fetch(
-    `http://localhost:3000/api/movies/recommendation?${new URLSearchParams({
+    `/api/movies/recommendation?${new URLSearchParams({
       movies: selectedMovies as any,
     }).toString()}
     `
