@@ -1,3 +1,4 @@
+"use client";
 import { createPortal } from "react-dom";
 import { Close } from "@styled-icons/evil/Close";
 import styles from "./modal.module.css";

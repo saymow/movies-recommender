@@ -3,8 +3,8 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import Row from "./components/Row";
 import { Movie } from "./models/movie";
 import styles from "./page.module.css";
-import Modal from "./components/Modal";
 import DetailedMovieModal from "./components/DetailedMovieModal";
+import Loader from "./components/Loader";
 
 type SelectedMovies = string[];
 
@@ -62,6 +62,7 @@ const get_recommendation = async (
 };
 
 const Home: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies] = useState<Movie[]>([]);
   const [selectedMovies, setSelectedMovies] = useState<SelectedMovies>([]);
   const [recommendedMovie, setRecommendedMovie] = useState<Movie>();
@@ -71,16 +72,22 @@ const Home: React.FC = () => {
   );
 
   useEffect(() => {
-    get_movies().then((data) => {
-      setMovies(data);
-    });
+    setIsLoading(true);
+    get_movies()
+      .then((data) => {
+        setMovies(data);
+      })
+      .then(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {
     if (selectedMovies.length === TOTAL_MOVIES_SELECT) {
-      get_recommendation(selectedMovies).then((recommendedMovie) => {
-        setRecommendedMovie(recommendedMovie);
-      });
+      setIsLoading(true);
+      get_recommendation(selectedMovies)
+        .then((recommendedMovie) => {
+          setRecommendedMovie(recommendedMovie);
+        })
+        .then(() => setIsLoading(false));
     }
   }, [selectedMovies]);
 
@@ -119,6 +126,7 @@ const Home: React.FC = () => {
         movie={recommendedMovie}
         onClose={handleCloseRecommendedMovieModal}
       />
+      {isLoading && <Loader />}
     </>
   );
 };
