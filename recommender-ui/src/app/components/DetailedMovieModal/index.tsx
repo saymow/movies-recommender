@@ -33,8 +33,8 @@ const DetailedMovieModal: React.FC<Props> = (props) => {
             <Image
               src={movie.img_url}
               alt={movie.title}
-              width={185 * 1.3}
-              height={278 * 1.3}
+              width={185 * 1.2}
+              height={278 * 1.2}
             />
             <section className={styles.movie_description}>
               <h2>{movie.title}</h2>
