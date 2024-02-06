@@ -60,7 +60,7 @@ const DetailedMovieModal: React.FC<Props> = (props) => {
                   key={video_id}
                   width={550 * 0.6}
                   height={300 * 0.6}
-                  src={`http://www.youtube.com/embed/${video_id}`}
+                  src={`https://www.youtube.com/embed/${video_id}`}
                   title="YouTube video player"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
