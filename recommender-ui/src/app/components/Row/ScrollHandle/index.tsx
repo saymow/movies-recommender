@@ -1,4 +1,6 @@
+import { useMemo } from "react";
 import styles from "./scroll-handle.module.css";
+import { ChevronThinRight, ChevronThinLeft } from "@styled-icons/entypo";
 
 interface Props {
   position: "LEFT" | "RIGHT";
@@ -9,6 +11,19 @@ interface Props {
 const ScrollHandle: React.FC<Props> = (props) => {
   const { onClick, position, disabled } = props;
 
+  const ArrowIcon = useMemo(() => {
+    const color = disabled
+      ? "rgba(255, 255, 255, .1)"
+      : "rgba(255, 255, 255, .9)";
+
+    switch (position) {
+      case "LEFT":
+        return <ChevronThinLeft color={color} height="100%" width="100%" />;
+      case "RIGHT":
+        return <ChevronThinRight color={color} height="100%" width="100%" />;
+    }
+  }, [position, disabled]);
+
   const className = `
     ${styles.scroll_handle} 
     ${
@@ -16,10 +31,13 @@ const ScrollHandle: React.FC<Props> = (props) => {
         ? styles.scroll_handle_left
         : styles.scroll_handle_right
     }
-    ${disabled ? styles.scroll_handle_disabled : ""}
   `;
 
-  return <span onClick={onClick} className={className}></span>;
+  return (
+    <span onClick={onClick} className={className}>
+      {ArrowIcon}
+    </span>
+  );
 };
 
 export default ScrollHandle;
