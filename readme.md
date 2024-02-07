@@ -36,7 +36,7 @@ The **UI implementation follows the exact method defined above**, allowing the u
 
 ## Results
 
-You can find the recommendation UI is deployed <a href="https://movies-recommender-tau.vercel.app/" target="_blank">here</a>
+You can find the recommendation UI deployed <a href="https://movies-recommender-tau.vercel.app/" target="_blank">here</a>
 
 In the output folder you can find:
 
