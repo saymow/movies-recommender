@@ -2,6 +2,8 @@
 
 ## <a href="https://movies-recommender-tau.vercel.app/" target="_blank">Live version</a>
 
+[Screencast from 06-02-2024 15:53:56.webm](https://github.com/saymow/movies-recommender/assets/52419335/f4017ba1-9f92-469a-b4b5-c3d5daf33599)
+
 Using users (e.g., preferences for each of the defined genres (0-5)) and movies (e.g., binary attribute indicating whether or not a movie is part of a certain genre (1.0)) content, train the model to predict movie recommendations. In this case specifically, since we are not going to have users, we are going to focus on how similar a movie is to other movies.
 
 The dataset contains: 
@@ -16,7 +18,7 @@ The dataset contains:
 
 Compute the distance between movies using the features trained by the neural network model. This distance is saved in a **2D matrix** so that the calculation of the distance is as follows: 
 
-![image.png](attachment:46cae977-492b-4161-a9c4-99b36f98b48a.png)
+![distance-matrix-example](https://github.com/saymow/movies-recommender/assets/52419335/8d00e02c-c3df-426c-87d4-e63e98459de0)
 
 **i**: Movie<sub>i</sub> index in the matrix
 
@@ -34,7 +36,7 @@ The **UI implementation follows the exact method defined above**, allowing the u
 
 ## Results
 
-You can find the recommendation UI is deployed <a href="https://movies-recommender-tau.vercel.app/" target="_blank">here</a>
+You can find the recommendation UI deployed <a href="https://movies-recommender-tau.vercel.app/" target="_blank">here</a>
 
 In the output folder you can find:
 
