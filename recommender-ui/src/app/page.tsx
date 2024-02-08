@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import GithubCorner from "react-github-corner";
 import Row from "./components/Row";
 import { Movie } from "./models/movie";
 import styles from "./page.module.css";
@@ -127,6 +128,10 @@ const Home: React.FC = () => {
         onClose={handleCloseRecommendedMovieModal}
       />
       {isLoading && <Loader />}
+      <GithubCorner
+        href="https://github.com/saymow/movies-recommender"
+        target="_blank"
+      />
     </>
   );
 };

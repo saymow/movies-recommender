@@ -95,3 +95,7 @@ a {
   background: #161616;
   border-radius: .5rem;
 }
+
+.github-corner svg {
+  z-index: 999;
+}
